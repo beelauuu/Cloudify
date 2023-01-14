@@ -1,24 +1,30 @@
 import requests
-import shape
+from dotenv import load_dotenv
+from flask import Flask, redirect, render_template, request, url_for
+
 import colors
-from flask import Flask, redirect, request, render_template, url_for
+import shape
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
 
-#Spotify Application API details
-CLIENT_ID = ""
-CLIENT_SECRET = ""
-REDIRECT_URI = "" 
-SCOPES = ["user-top-read"]  
+# Spotify Application API details
+CLIENT_ID = os.getenv("CLIENT_ID")
+CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+REDIRECT_URI = os.getenv("REDIRECT_URI")
+SCOPES = ["user-top-read"]
 
 
-#Home Page
+# Home Page
 @app.route("/")
 def index():
     # Render a template with a login button
     return render_template("index.html")
 
-#Redirect To Login
+
+# Redirect To Login
 @app.route("/login")
 def login():
     # Redirect the user to the Spotify authorization URL
@@ -26,12 +32,14 @@ def login():
         f"https://accounts.spotify.com/authorize?client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}&scope={'%20'.join(SCOPES)}&response_type=code&show_dialog=true"
     )
 
-#Settings Page
+
+# Settings Page
 @app.route("/intermediate")
 def intermediate():
-    #Grabbing the access token after being passed in from the callback and passing in as a parameter
-    access_token = request.args.get('access_token')
+    # Grabbing the access token after being passed in from the callback and passing in as a parameter
+    access_token = request.args.get("access_token")
     return render_template("intermediate.html", parameter=access_token)
+
 
 @app.route("/callback")
 def callback():
@@ -50,43 +58,43 @@ def callback():
         },
     )
 
-    #Grab access token and then redirect it to the settings page
+    # Grab access token and then redirect it to the settings page
     access_token = token_response.json()["access_token"]
-    return redirect(url_for('intermediate', access_token=access_token))
+    return redirect(url_for("intermediate", access_token=access_token))
 
-#About Page
+
+# About Page
 @app.route("/about")
 def about():
     return render_template("about.html")
 
-#Contact Page
+
+# Contact Page
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
 
-#Final Page Display
-@app.route("/final", methods=['GET','POST'])
+
+# Final Page Display
+@app.route("/final", methods=["GET", "POST"])
 def final():
     try:
-        #Getting the options
-        color = request.form['color']
-        shapes = request.form['shape']
-        duration = request.form['duration']
-        access_token = request.form['parameter']
+        # Getting the options
+        color = request.form["color"]
+        shapes = request.form["shape"]
+        duration = request.form["duration"]
+        access_token = request.form["parameter"]
 
-        #Getting Time-Frame
+        # Getting Time-Frame
         if duration == "1 Month":
             top_artists_response = requests.get(
                 "https://api.spotify.com/v1/me/top/artists",
                 headers={
                     "Authorization": f"Bearer {access_token}",
                 },
-                params = {
-                    "limit": "50",
-                    "time_range": "short_term"
-                }
+                params={"limit": "50", "time_range": "short_term"},
             )
-            top_artists = top_artists_response.json()["items"]   
+            top_artists = top_artists_response.json()["items"]
             artist_names = [artist["name"] for artist in top_artists]
         elif duration == "6 Months":
             top_artists_response = requests.get(
@@ -94,12 +102,9 @@ def final():
                 headers={
                     "Authorization": f"Bearer {access_token}",
                 },
-                params = {
-                    "limit": "50",
-                    "time_range": "medium_term"
-                }
+                params={"limit": "50", "time_range": "medium_term"},
             )
-            top_artists = top_artists_response.json()["items"]   
+            top_artists = top_artists_response.json()["items"]
             artist_names = [artist["name"] for artist in top_artists]
         else:
             top_artists_response = requests.get(
@@ -107,15 +112,12 @@ def final():
                 headers={
                     "Authorization": f"Bearer {access_token}",
                 },
-                params = {
-                    "limit": "50",
-                    "time_range": "long_term"
-                }
+                params={"limit": "50", "time_range": "long_term"},
             )
-            top_artists = top_artists_response.json()["items"]   
+            top_artists = top_artists_response.json()["items"]
             artist_names = [artist["name"] for artist in top_artists]
 
-        #Color    
+        # Color
         if color == "Spotify Green":
             color = colors.spotify_green_color_func
         elif color == "Red":
@@ -145,7 +147,7 @@ def final():
         elif color == "Chinese New Year Mix":
             color = colors.chinese_new_year_color_func
 
-        #Shape
+        # Shape
         if shapes == "Spotify":
             shape.generate_spotify_word_cloud(color, artist_names)
         elif shapes == "Moon":
@@ -160,16 +162,18 @@ def final():
             shape.generate_pacman_word_cloud(color, artist_names)
         elif shapes == "None":
             shape.generate_normal_word_cloud(color, artist_names)
-        
-        #Rendering the final page
+
+        # Rendering the final page
         return render_template("wordcloud.html")
     except:
         handle_error(400)
 
+
 @app.errorhandler(Exception)
 def handle_error(e):
-    return redirect(url_for('login'))
+    return redirect(url_for("login"))
 
-#Running the app
+
+# Running the app
 if __name__ == "__main__":
     app.run(debug=True)
