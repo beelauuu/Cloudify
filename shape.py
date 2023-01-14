@@ -25,7 +25,7 @@ def generate_spotify_word_cloud(color, artist_names):
     wordcloud.recolor(color_func=color)
 
     # Save it as a file
-    wordcloud.to_file("static/img/wordcloud.png")
+    wordcloud.to_file("static/img/wordclouds/wordcloud.png")
 
 
 # Star Shape
@@ -43,7 +43,7 @@ def generate_star_word_cloud(color, artist_names):
     word_could_dict = Counter(artist_names)
     wordcloud.generate_from_frequencies(word_could_dict)
     wordcloud.recolor(color_func=color)
-    wordcloud.to_file("static/img/wordcloud.png")
+    wordcloud.to_file("static/img/wordclouds/wordcloud.png")
 
 
 # Heart Shape
@@ -61,7 +61,7 @@ def generate_heart_word_cloud(color, artist_names):
     word_could_dict = Counter(artist_names)
     wordcloud.generate_from_frequencies(word_could_dict)
     wordcloud.recolor(color_func=color)
-    wordcloud.to_file("static/img/wordcloud.png")
+    wordcloud.to_file("static/img/wordclouds/wordcloud.png")
 
 
 # Moon Shape
@@ -79,7 +79,7 @@ def generate_moon_word_cloud(color, artist_names):
     word_could_dict = Counter(artist_names)
     wordcloud.generate_from_frequencies(word_could_dict)
     wordcloud.recolor(color_func=color)
-    wordcloud.to_file("static/img/wordcloud.png")
+    wordcloud.to_file("static/img/wordclouds/wordcloud.png")
 
 
 # Tree Shape
@@ -97,7 +97,7 @@ def generate_tree_word_cloud(color, artist_names):
     word_could_dict = Counter(artist_names)
     wordcloud.generate_from_frequencies(word_could_dict)
     wordcloud.recolor(color_func=color)
-    wordcloud.to_file("static/img/wordcloud.png")
+    wordcloud.to_file("static/img/wordclouds/wordcloud.png")
 
 
 # Pacman Shape
@@ -115,7 +115,7 @@ def generate_pacman_word_cloud(color, artist_names):
     word_could_dict = Counter(artist_names)
     wordcloud.generate_from_frequencies(word_could_dict)
     wordcloud.recolor(color_func=color)
-    wordcloud.to_file("static/img/wordcloud.png")
+    wordcloud.to_file("static/img/wordclouds/wordcloud.png")
 
 
 # Default
@@ -130,4 +130,4 @@ def generate_normal_word_cloud(color, artist_names):
     word_could_dict = Counter(artist_names)
     wordcloud.generate_from_frequencies(word_could_dict)
     wordcloud.recolor(color_func=color)
-    wordcloud.to_file("static/img/wordcloud.png")
+    wordcloud.to_file("static/img/wordclouds/wordcloud.png")
