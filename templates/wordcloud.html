@@ -37,8 +37,8 @@
   <div class="main">
     <div class="main__content">
       <h1>Your Wordcloud</h1>
-      <img src="{{ url_for('static', filename='img/wordclouds/wordcloud.png') }}" alt="Word Cloud Image">
-      <button onclick="downloadImage()" class="download-button">Download Your Wordcloud!</button>
+     <img id="wordcloud-img" src="{{ wordcloud_name }}" alt="Word Cloud Image">
+     <button onclick="downloadImage('{{ wordcloud_name }}')" class="download-button">Download Your Wordcloud!</button>
       <p>Generate another one by going back a page!</p>
       <center><img src="static/img/spotifylogo.png" width="164" height="44"></center>
     </div>
