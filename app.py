@@ -121,7 +121,7 @@ def final():
         color = colors.color_func_mapping[color]
 
         # Shape
-        wordcloud_name = shape.generate_word_cloud(shapes, color, artist_names)
+        wordcloud_name = shape.generate_word_cloud(shapes, color, artist_names, access_token)
 
         # Rendering the final page
         return render_template("wordcloud.html", wordcloud_name=wordcloud_name)
