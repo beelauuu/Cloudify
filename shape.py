@@ -131,3 +131,20 @@ def generate_normal_word_cloud(color, artist_names):
     wordcloud.generate_from_frequencies(word_could_dict)
     wordcloud.recolor(color_func=color)
     wordcloud.to_file("static/img/wordclouds/wordcloud.png")
+
+# Generic function
+def generate_word_cloud(shape, color, artist_names):
+    if shape == "Spotify":
+        generate_spotify_word_cloud(color, artist_names)
+    elif shape == "Moon":
+        generate_moon_word_cloud(color, artist_names)
+    elif shape == "Heart":
+        generate_heart_word_cloud(color, artist_names)
+    elif shape == "Star":
+        generate_star_word_cloud(color, artist_names)
+    elif shape == "Tree":
+        generate_tree_word_cloud(color, artist_names)
+    elif shape == "Pacman":
+        generate_pacman_word_cloud(color, artist_names)
+    elif shape == "None":
+        generate_normal_word_cloud(color, artist_names)
