@@ -1,9 +1,10 @@
 import os
 import time
 
-path = "static/img"
+path = "static/img/wordcloud"
 current_time = time.time()
 
+#Loops through the file directory of the stored wordclouds. If it hasn't been touched in 15 minutes then remove it.
 for file_name in os.listdir(path):
     file_path = os.path.join(path, file_name)
     if os.path.isfile(file_path):
