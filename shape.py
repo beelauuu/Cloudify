@@ -142,16 +142,16 @@ def generate_normal_word_cloud(color, artist_names, access_token):
 # Generic function
 def generate_word_cloud(shape, color, artist_names):
     if shape == "Spotify":
-        return generate_spotify_word_cloud(color, artist_names)
+        generate_spotify_word_cloud(color, artist_names)
     elif shape == "Moon":
-        return generate_moon_word_cloud(color, artist_names)
+        generate_moon_word_cloud(color, artist_names)
     elif shape == "Heart":
-        return generate_heart_word_cloud(color, artist_names)
+        generate_heart_word_cloud(color, artist_names)
     elif shape == "Star":
-        return generate_star_word_cloud(color, artist_names)
+        generate_star_word_cloud(color, artist_names)
     elif shape == "Tree":
-        return generate_tree_word_cloud(color, artist_names)
+        generate_tree_word_cloud(color, artist_names)
     elif shape == "Pacman":
-        return generate_pacman_word_cloud(color, artist_names)
+        generate_pacman_word_cloud(color, artist_names)
     elif shape == "None":
-        return generate_normal_word_cloud(color, artist_names)
+        generate_normal_word_cloud(color, artist_names)
