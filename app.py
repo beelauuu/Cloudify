@@ -121,10 +121,10 @@ def final():
         color = colors.color_func_mapping[color]
 
         # Shape
-        shape.generate_word_cloud(shapes, color, artist_names)
+        wordcloud_name = shape.generate_word_cloud(shapes, color, artist_names)
 
         # Rendering the final page
-        return render_template("wordcloud.html")
+        return render_template("wordcloud.html", wordcloud_name=wordcloud_name)
     except:
         handle_error(400)
 
