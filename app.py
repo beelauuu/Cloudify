@@ -118,50 +118,10 @@ def final():
             artist_names = [artist["name"] for artist in top_artists]
 
         # Color
-        if color == "Spotify Green":
-            color = colors.spotify_green_color_func
-        elif color == "Red":
-            color = colors.red_color_func
-        elif color == "Orange":
-            color = colors.orange_color_func
-        elif color == "Yellow":
-            color = colors.yellow_color_func
-        elif color == "Green":
-            color = colors.green_color_func
-        elif color == "Blue":
-            color = colors.blue_color_func
-        elif color == "Purple":
-            color = colors.violet_color_func
-        elif color == "Pink":
-            color = colors.pink_color_func
-        elif color == "White":
-            color = colors.white_color_func
-        elif color == "Christmas Mix":
-            color = colors.christmas_color_func
-        elif color == "Summer Mix":
-            color = colors.summer_color_func
-        elif color == "Fall Mix":
-            color = colors.fall_color_func
-        elif color == "Rainbow Mix":
-            color = colors.rainbow_color_func
-        elif color == "Chinese New Year Mix":
-            color = colors.chinese_new_year_color_func
+        color = colors.color_func_mapping[color]
 
         # Shape
-        if shapes == "Spotify":
-            shape.generate_spotify_word_cloud(color, artist_names)
-        elif shapes == "Moon":
-            shape.generate_moon_word_cloud(color, artist_names)
-        elif shapes == "Heart":
-            shape.generate_heart_word_cloud(color, artist_names)
-        elif shapes == "Star":
-            shape.generate_star_word_cloud(color, artist_names)
-        elif shapes == "Tree":
-            shape.generate_tree_word_cloud(color, artist_names)
-        elif shapes == "Pacman":
-            shape.generate_pacman_word_cloud(color, artist_names)
-        elif shapes == "None":
-            shape.generate_normal_word_cloud(color, artist_names)
+        shape.generate_word_cloud(shapes, color, artist_names)
 
         # Rendering the final page
         return render_template("wordcloud.html")

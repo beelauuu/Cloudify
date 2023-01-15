@@ -103,3 +103,21 @@ def spotify_green_color_func(
     word, font_size, position, orientation, random_state=None, **kwargs
 ):
     return "#1DB954"
+
+
+color_func_mapping = {
+    "Spotify Green": spotify_green_color_func,
+    "Red": red_color_func,
+    "Orange": orange_color_func,
+    "Yellow": yellow_color_func,
+    "Green": green_color_func,
+    "Blue": blue_color_func,
+    "Purple": violet_color_func,
+    "Pink": pink_color_func,
+    "White": white_color_func,
+    "Christmas Mix": christmas_color_func,
+    "Summer Mix": summer_color_func,
+    "Fall Mix": fall_color_func,
+    "Rainbow Mix": rainbow_color_func,
+    "Chinese New Year Mix": chinese_new_year_color_func,
+}
