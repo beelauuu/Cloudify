@@ -1,5 +1,4 @@
 from collections import Counter
-
 import numpy as np
 from PIL import Image
 from wordcloud import WordCloud
@@ -44,7 +43,7 @@ def generate_star_word_cloud(color, artist_names, access_token):
     word_could_dict = Counter(artist_names)
     wordcloud.generate_from_frequencies(word_could_dict)
     wordcloud.recolor(color_func=color)
-    wwordcloud.to_file("static/img/wordclouds/" + access_token + "wordcloud.png")
+    wordcloud.to_file("static/img/wordclouds/" + access_token + "wordcloud.png")
     return "static/img/wordclouds/" + access_token + "wordcloud.png"
 
 
