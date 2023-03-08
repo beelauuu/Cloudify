@@ -38,57 +38,56 @@
     <div class="main__container">
       <div class="main__content">
         <h1>Options</h1>
-        <div class="form-container">
-          <form action="/final" method="POST">
-            <!-- Color options -->
-            <label for="color">Select a Color:</label><br />
-            <select name="color" id="color">
-              <option value="Spotify Green" selected>Spotify Green</option>
-              <option value="Red">Red</option>
-              <option value="Orange">Orange</option>
-              <option value="Yellow">Yellow</option>
-              <option value="Green">Green</option>
-              <option value="Blue">Blue</option>
-              <option value="Purple">Purple</option>
-              <option value="Pink">Pink</option>
-              <option value="White">White</option>
-              <option value="Chinese New Year Mix">Chinese New Year Mix</option>
-              <option value="Christmas Mix">Christmas Mix</option>
-              <option value="Fall Mix">Fall Mix</option>
-              <option value="Summer Mix">Summer Mix</option>
-              <option value="Rainbow Mix">Rainbow Mix</option>
-            </select>
-            <br /><br />
-            <!-- Shape options -->
-            <label for="shape">Select a Shape:</label><br />
-            <select name="shape" id="shape">
-              <option value="Spotify" selected>Spotify Logo</option>
-              <option value="Heart">Heart</option>
-              <option value="Star">Star</option>
-              <option value="Tree">Tree</option>
-              <option value="Pacman">Pacman</option>
-              <option value="Moon">Moon</option>
-              <option value="None">None</option>
-            </select>
-            <br /><br />
-            <!-- Duration options -->
-            <label for="duration">Select a Time Period:</label><br />
-            <select name="duration" id="duration">
-              <option value="1 Month">Last Month</option>
-              <option value="6 Months" selected>Last 6 Months</option>
-              <option value="All-Time">All-Time</option>
-            </select>
+          <div class="form-container">
+            <form action="/final" method="POST">
+              <!-- Color options -->
+              <label for="color">Select a Color:</label><br />
+              <select name="color" id="color">
+                <option value="Spotify Green" selected>Spotify Green</option>
+                <option value="Red">Red</option>
+                <option value="Orange">Orange</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Green">Green</option>
+                <option value="Blue">Blue</option>
+                <option value="Purple">Purple</option>
+                <option value="Pink">Pink</option>
+                <option value="White">White</option>
+                <option value="Chinese New Year Mix">Chinese New Year Mix</option>
+                <option value="St Patricks Mix">St Patricks Mix</option>
+                <option value="Fall Mix">Fall Mix</option>
+                <option value="Summer Mix">Summer Mix</option>
+                <option value="Rainbow Mix">Rainbow Mix</option>
+              </select>
+              <br /><br />
+              <!-- Shape options -->
+              <label for="shape">Select a Shape:</label><br />
+              <select name="shape" id="shape">
+                <option value="Spotify" selected>Spotify Logo</option>
+                <option value="Heart">Heart</option>
+                <option value="Star">Star</option>
+                <option value="Tree">Tree</option>
+                <option value="Pacman">Pacman</option>
+                <option value="Moon">Moon</option>
+                <option value="None">None</option>
+              </select>
+              <br /><br />
+              <!-- Duration options -->
+              <label for="duration">Select a Time Period:</label><br />
+              <select name="duration" id="duration">
+                <option value="1 Month">Last Month</option>
+                <option value="6 Months" selected>Last 6 Months</option>
+                <option value="All-Time">All-Time</option>
+              </select>
+            </div>
+              <br/><br/>
+              <input type="submit" class="submit-button" value="Generate Word Cloud" />
+              <input type="hidden" name="parameter" value="{{ parameter }}">
+            </form>  
+            <p>Note: It may not generate 50 artists if you haven't listened to 50 in that time period</p>
+            <center><img src="static/img/spotifylogo.png" width="164" height="44"></center>
         </div>
-        <br /><br />
-        <input type="submit" class="submit-button" value="Generate Word Cloud" />
-        <input type="hidden" name="parameter" value="{{ parameter }}">
-        </form>
-        <p>Note: It may not generate 50 artists if you haven't listened to 50 in that time period</p>
-        <center><img src="static/img/spotifylogo.png" width="164" height="44"></center>
       </div>
     </div>
-  </div>
-  <script src="static\js\app.js"></script>
-</body>
-
+    <script src="static\css\app.js"></script>
+  </body>
 </html>
