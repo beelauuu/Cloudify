@@ -22,8 +22,6 @@ def generate_spotify_word_cloud(color, artist_names, access_token):
     word_could_dict = Counter(artist_names)
     wordcloud.generate_from_frequencies(word_could_dict)
     wordcloud.recolor(color_func=color)
-
-    # Save it as a file
     wordcloud.to_file("static/img/wordclouds/" + access_token + "wordcloud.png")
     return "static/img/wordclouds/" + access_token + "wordcloud.png"
 

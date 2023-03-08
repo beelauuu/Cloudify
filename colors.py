@@ -12,13 +12,12 @@ rainbow_colors = [
 tree_colors = ["#dfd8c9", "#a5633c", "#5f6344", "#694b37", "#7a6935"]
 summer_colors = ["#75CDD8", "#F0F2E7", "#FF8296", "#FFCA27", "#FFEC00"]
 christmas_colors = ["#ff0000", "#ff7878", "#ffffff", "#74d680", "#378b29"]
-chinese_new_year_colors = [
-    "#CC232A",
-    "#F5AC27",
-    "#FFD84B",
-    "#F2888B",
-    "#A3262A",
-    "#CC9902",
+saint_patricks_colors = [
+    "#224D17",
+    "#099441",
+    "#60A830",
+    "#9FDA40",
+    "#D9DF1D"
 ]
 
 
@@ -92,10 +91,10 @@ def rainbow_color_func(
     return random.choice(rainbow_colors)
 
 
-def chinese_new_year_color_func(
+def saint_patricks_color_func(
     word, font_size, position, orientation, random_state=None, **kwargs
 ):
-    return random.choice(chinese_new_year_colors)
+    return random.choice(saint_patricks_colors)
 
 
 def spotify_green_color_func(
@@ -118,5 +117,5 @@ color_func_mapping = {
     "Summer Mix": summer_color_func,
     "Fall Mix": fall_color_func,
     "Rainbow Mix": rainbow_color_func,
-    "Chinese New Year Mix": chinese_new_year_color_func,
+    "St Patricks Mix": saint_patricks_color_func,
 }
