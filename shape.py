@@ -60,8 +60,8 @@ def generate_heart_word_cloud(color, artist_names, access_token):
     word_could_dict = Counter(artist_names)
     wordcloud.generate_from_frequencies(word_could_dict)
     wordcloud.recolor(color_func=color)
-    wordcloud.to_file("static/img/wordclouds" + access_token + "wordcloud.png")
-    return "static/img/wordclouds" + access_token + "wordcloud.png"
+    wordcloud.to_file("static/img/wordclouds/" + access_token + "wordcloud.png")
+    return "static/img/wordclouds/" + access_token + "wordcloud.png"
 
 
 # Moon Shape
@@ -79,8 +79,8 @@ def generate_moon_word_cloud(color, artist_names, access_token):
     word_could_dict = Counter(artist_names)
     wordcloud.generate_from_frequencies(word_could_dict)
     wordcloud.recolor(color_func=color)
-    wordcloud.to_file("static/img/wordclouds" + access_token + "wordcloud.png")
-    return "static/img/wordclouds" + access_token + "wordcloud.png"
+    wordcloud.to_file("static/img/wordclouds/" + access_token + "wordcloud.png")
+    return "static/img/wordclouds/" + access_token + "wordcloud.png"
 
 
 # Tree Shape
@@ -98,8 +98,8 @@ def generate_tree_word_cloud(color, artist_names, access_token):
     word_could_dict = Counter(artist_names)
     wordcloud.generate_from_frequencies(word_could_dict)
     wordcloud.recolor(color_func=color)
-    wordcloud.to_file("static/img/wordclouds" + access_token + "wordcloud.png")
-    return "static/img/wordclouds" + access_token + "wordcloud.png"
+    wordcloud.to_file("static/img/wordclouds/" + access_token + "wordcloud.png")
+    return "static/img/wordclouds/" + access_token + "wordcloud.png"
 
 
 # Pacman Shape
@@ -117,8 +117,8 @@ def generate_pacman_word_cloud(color, artist_names, access_token):
     word_could_dict = Counter(artist_names)
     wordcloud.generate_from_frequencies(word_could_dict)
     wordcloud.recolor(color_func=color)
-    wordcloud.to_file("static/img/wordclouds" + access_token + "wordcloud.png")
-    return "static/img/wordclouds" + access_token + "wordcloud.png"
+    wordcloud.to_file("static/img/wordclouds/" + access_token + "wordcloud.png")
+    return "static/img/wordclouds/" + access_token + "wordcloud.png"
 
 
 # Default
@@ -133,8 +133,8 @@ def generate_normal_word_cloud(color, artist_names, access_token):
     word_could_dict = Counter(artist_names)
     wordcloud.generate_from_frequencies(word_could_dict)
     wordcloud.recolor(color_func=color)
-    wordcloud.to_file("static/img/wordclouds" + access_token + "wordcloud.png")
-    return "static/img/wordclouds" + access_token + "wordcloud.png"
+    wordcloud.to_file("static/img/wordclouds/" + access_token + "wordcloud.png")
+    return "static/img/wordclouds/" + access_token + "wordcloud.png"
 
 # Generic function
 def generate_word_cloud(shape, color, artist_names, access_token):
