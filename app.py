@@ -11,9 +11,9 @@ load_dotenv()
 app = Flask(__name__)
 
 # Spotify Application API details
-CLIENT_ID = os.getenv("CLIENT_ID")
-CLIENT_SECRET = os.getenv("CLIENT_SECRET")
-REDIRECT_URI = os.getenv("REDIRECT_URI")
+CLIENT_ID = "ee62fc5627e04dfe9ff12ee31f5fe6dd"
+CLIENT_SECRET = "bb4d03d0b01745aeaf51c3132d924dc2"
+REDIRECT_URI = "https://cloudify.herokuapp.com/callback"
 SCOPES = ["user-top-read"]
 
 
