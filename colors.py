@@ -1,6 +1,5 @@
 import itertools
 import random
-
 rainbow_colors = [
     "#FF0000",
     "#FF7F00",
