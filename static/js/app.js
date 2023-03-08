@@ -6,9 +6,9 @@ menu.addEventListener('click', function() {
   menuLinks.classList.toggle('active');
 });
 
-function downloadImage() {
+function downloadImage(url) {
   // Get the image URL
-  const imageUrl = 'static/img/wordclouds/wordcloud.png';
+  const imageUrl = url;
   // Create a link element
   const link = document.createElement('a');
   // Set the link element's href to the image URL
